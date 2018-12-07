@@ -8,6 +8,9 @@ var server=require('gulp-webserver');
                    proxies:[
                        {
                            source:'/api/userlist',target:'http://192.168.2.51:3000/users/api/userlist'
+                       },
+                       {
+                           source:'/users/api/add',target:'http://192.168.2.51:3000/users/api/add'
                        }
                    ]
                }))

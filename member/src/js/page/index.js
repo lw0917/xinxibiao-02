@@ -1,5 +1,5 @@
 require(['./js/main.js'],function(){
-	  require(['mui','jquery'],function(mui,$){
+	  require(['mui'],function(mui){
 		  mui.init();
 		  
 		  //滚动
@@ -13,13 +13,36 @@ require(['./js/main.js'],function(){
 			dataType:'json',
 			success:function(res){
 				console.log(res);
-				if(res.code === 1){
-					///renderList(res.data);
+				if(res.code === 0){
+					renderList(res.msg);
 				}
 			}
 		 })
-		  
-		  
+		 
+		 function renderList(data){
+						 var str='';
+						 console.log(data)
+						 data.forEach(function(file){
+							   str+=`<li class="mui-table-view-cell">
+								 ${file.user}
+								 <div class="btns">
+									 <button type="button" class="mui-btn mui-btn-primary" data-id="${file.adds}">
+										 查看详情
+									 </button>
+									 <button type="button" class="mui-btn mui-btn-danger"  data-id="${file.adds}">
+										 删除
+									 </button>
+								 </div>
+							 </li>`
+						 })
+						document.querySelector('.list').innerHTML=str;
+		 }
+		
+		 //点击添加去添加界面
+		var addBtn = document.querySelector('.mui-icon-plus');
+		addBtn.addEventListener('tap',function(){
+			location.href="./page/add.html";
+		})
 		  
 	  })
 })

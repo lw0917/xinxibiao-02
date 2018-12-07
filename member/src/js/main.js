@@ -2,6 +2,7 @@ require.config({
 	  baseUrl:'/js/',
 	  paths:{
 		  mui:'./libs/mui.min',
-		  jquery:'./libs/jquery'
+		  dom:'./common/dom',
+		  getParams:'./common/getParams'
 	  }
 })
